@@ -9,7 +9,7 @@ import shortId from 'shortid';
 dotenv.config();
 
 const getShortUrls = async (req: IReq, res: IRes): Promise<void | IRes> => {
-	const shortUrls = await UrlModel.find({});
+	const shortUrls = await UrlModel.find();
 	res.status(200).json(shortUrls);
 };
 
@@ -26,8 +26,8 @@ const createShortUrl = async (req: IReq, res: IRes): Promise<void | IRes> => {
 	if (savedUrl) return res.status(200).json(savedUrl);
 
 	const urlId = shortId.generate();
-	const shortUrl = baseUrl + urlId;
-	const newShortUrl = UrlModel.create({ fullUrl: url, urlId, shortUrl });
+	const shortUrl = baseUrl + '/' + urlId;
+	const newShortUrl = await UrlModel.create({ fullUrl: url, urlId, shortUrl });
 	res.status(201).json(newShortUrl);
 };
 

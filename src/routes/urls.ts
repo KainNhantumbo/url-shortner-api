@@ -1,6 +1,6 @@
-import asyncWrapper from '../error/async-error-handler';
-import { createShortUrl, getShortUrls } from '../controllers/urls';
 import { Router } from 'express';
+import { createShortUrl, getShortUrls } from '../controllers/urls';
+import asyncWrapper from '../error/async-error-handler';
 
 const router = Router();
 router

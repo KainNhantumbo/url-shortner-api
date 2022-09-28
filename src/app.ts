@@ -7,6 +7,7 @@ import { rateLimit } from 'express-rate-limit';
 import { error404Route } from './routes/404';
 import globalErrorHandler from './middlewares/global-error-handler';
 import { shortnerRoutes } from './routes/urls';
+import { redirectRoutes } from './routes/redirects';
 
 // env config
 dotenv.config();
@@ -25,12 +26,12 @@ app.use(helmet());
 app.use(cors(cors_options));
 app.use(limiter);
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 // routes
-app.use('/shorten', shortnerRoutes);
+app.use('/', redirectRoutes);
+app.use('/urls/shorten', shortnerRoutes);
 
-// error 
+// error
 app.use(error404Route);
 app.use(globalErrorHandler);
 
