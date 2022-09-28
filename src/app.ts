@@ -6,6 +6,7 @@ import cors, { CorsOptions } from 'cors';
 import { rateLimit } from 'express-rate-limit';
 import { error404Route } from './routes/404';
 import globalErrorHandler from './middlewares/global-error-handler';
+import { shortnerRoutes } from './routes/urls';
 
 // env config
 dotenv.config();
@@ -27,7 +28,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // routes
+app.use('/shorten', shortnerRoutes);
+
+// error 
 app.use(error404Route);
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
 bootstrap(app, PORT, process.env.MONGO_URI || '');

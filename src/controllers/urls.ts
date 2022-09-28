@@ -8,7 +8,12 @@ import shortId from 'shortid';
 // load environment variables
 dotenv.config();
 
-export const createShortUrl = async (req: IReq, res: IRes) => {
+const getShortUrls = async (req: IReq, res: IRes): Promise<void | IRes> => {
+	const shortUrls = await UrlModel.find({});
+	res.status(200).json(shortUrls);
+};
+
+const createShortUrl = async (req: IReq, res: IRes): Promise<void | IRes> => {
 	const { url } = req.body;
 	const baseUrl = process.env.BASE_URL || '';
 
@@ -23,5 +28,7 @@ export const createShortUrl = async (req: IReq, res: IRes) => {
 	const urlId = shortId.generate();
 	const shortUrl = baseUrl + urlId;
 	const newShortUrl = UrlModel.create({ fullUrl: url, urlId, shortUrl });
-	return res.status(201).json(newShortUrl);
+	res.status(201).json(newShortUrl);
 };
+
+export { getShortUrls, createShortUrl };
