@@ -14,7 +14,7 @@ async function bootstrap(app: IApp, port: Port, db_uri: string) {
 	try {
 		await db(db_uri);
 		console.log('Connection to database has been established successfuly.');
-		app.listen(port, () => console.log('Server listening on port ', port));
+		app.listen(port, () => console.log('Server listening on port', port));
 	} catch (err) {
 		console.error(err);
 	}
