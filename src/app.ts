@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv';
 import cors, { CorsOptions } from 'cors';
 import { rateLimit } from 'express-rate-limit';
 import { error404Route } from './routes/404';
+import globalErrorHandler from './middlewares/global-error-handler';
 
 // env config
 dotenv.config();
@@ -27,5 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use(error404Route);
+app.use(globalErrorHandler)
 
 bootstrap(app, PORT, process.env.MONGO_URI || '');
