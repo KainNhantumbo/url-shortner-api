@@ -1,7 +1,7 @@
 {
-	"name": "server",
+	"name": "url-shortner-api",
 	"version": "1.0.0",
-	"description": "",
+	"description": "API to serve Url Shortner application.",
 	"main": "src/app.ts",
 	"scripts": {
 		"start": "tsc && node dist/app.js",
