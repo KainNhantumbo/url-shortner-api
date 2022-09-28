@@ -18,6 +18,8 @@ const globalErrorHandler = (err: any, req: IReq, res: IRes, next: INextFn) => {
 			.status(err.statusCode)
 			.json({ message: err.message, err_code: err.statusCode });
 
+	// console.error(err) // development mode only
+
 	return res.status(500).json({
 		status: 'Internal Server Error',
 		err_code: 500,
