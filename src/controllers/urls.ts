@@ -24,6 +24,10 @@ const createShortUrl = async (req: IReq, res: IRes): Promise<void | IRes> => {
 	if (!validUrl.isUri(url))
 		throw new BaseError('Invalid url, check and try again.', 400);
 
+	const urlsCount = await UrlModel.count({ shortUrl: url });
+	if (urlsCount !== 0)
+		throw new BaseError("Please don't submit already shortened urls", 400);
+
 	const savedUrl = await UrlModel.findOne({ fullUrl: url });
 	if (savedUrl) return res.status(200).json(savedUrl);
 
@@ -43,7 +47,7 @@ const cleanupOldShortUrls = () => {
 			})
 			.catch((err) => console.error(err));
 	});
-	const job = new SimpleIntervalJob({ minutes: 3 }, task);
+	const job = new SimpleIntervalJob({ minutes: 5 }, task);
 	scheduler.addSimpleIntervalJob(job);
 };
 
