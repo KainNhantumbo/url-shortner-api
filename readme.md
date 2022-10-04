@@ -1,6 +1,6 @@
 # Url Shortner API (Node.JS + Typescript + Mongo DB)
 
-This web server application is built to serve its endpoints to Url Shortner application ([see it here](https://github.com/KainNhantumbo/url-shortner-app)), witch is currently under development too.
+This web server application is built to serve its endpoints to Url Shortner application ([see it here](https://github.com/KainNhantumbo/url-shortner-app)), which is currently under development too.
 
 ### Project status
 
@@ -27,7 +27,15 @@ Builds the app for production to the **dist folder**.
 npm run start
 ```
 
-Builds and starts the server in prodution.
+Builds and starts the server for prodution.
+
+### Disclaimer
+
+This application was made for pratice, learn and for improving my
+coding skills only. Do not use this application for commercial or
+professional purposes but you're free to test. Please understand that
+all saved shortned urls are periodicaly deleted from the database to avoid higher server costs and that will lead them
+to stop working.
 
 ## Contact
 

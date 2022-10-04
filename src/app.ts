@@ -8,11 +8,14 @@ import { error404Route } from './routes/404';
 import globalErrorHandler from './middlewares/global-error-handler';
 import { shortnerRoutes } from './routes/urls';
 import { redirectRoutes } from './routes/redirects';
+import { cleanupOldShortUrls } from './controllers/urls';
 
 // env config
 dotenv.config();
 const PORT = process.env.PORT || 3500;
-const cors_options: CorsOptions = { origin: 'http://localhost:3000' };
+const cors_options: CorsOptions = {
+	origin: ['http://localhost:3000', 'http://127.0.0.1:5173'],
+};
 const limiter = rateLimit({
 	windowMs: 10 * 60 * 1000,
 	max: 1200,
@@ -36,3 +39,4 @@ app.use(error404Route);
 app.use(globalErrorHandler);
 
 bootstrap(app, PORT, process.env.MONGO_URI || '');
+cleanupOldShortUrls();

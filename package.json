@@ -25,6 +25,7 @@
 		"@types/helmet": "^4.0.0",
 		"@types/jsonwebtoken": "^8.5.9",
 		"@types/node": "^18.7.21",
+		"@types/node-schedule": "^2.1.0",
 		"@types/shortid": "^0.0.29",
 		"@types/valid-url": "^1.0.3",
 		"nodemon": "^2.0.20",
@@ -38,7 +39,9 @@
 		"express-rate-limit": "^6.6.0",
 		"helmet": "^6.0.0",
 		"mongoose": "^6.6.1",
+		"node-schedule": "^2.1.0",
 		"shortid": "^2.2.16",
+		"toad-scheduler": "^1.6.1",
 		"valid-url": "^1.0.9"
 	}
 }
