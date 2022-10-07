@@ -1,4 +1,4 @@
-# Url Shortner API (Node.JS + Typescript + Mongo DB)
+# Url Shortner REST API (Node.JS + Typescript + Mongo DB)
 
 This web server application is built to serve its endpoints to Url Shortner application ([see it here](https://github.com/KainNhantumbo/url-shortner-app)), which is currently under development too.
 

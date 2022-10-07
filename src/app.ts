@@ -14,7 +14,11 @@ import { cleanupOldShortUrls } from './controllers/urls';
 dotenv.config();
 const PORT = process.env.PORT || 3500;
 const cors_options: CorsOptions = {
-	origin: ['http://localhost:3000', 'http://127.0.0.1:5173'],
+	origin: [
+		'http://localhost:3000',
+		'http://127.0.0.1:5173',
+		'https://url-shortner-app-six.vercel.app',
+	],
 };
 const limiter = rateLimit({
 	windowMs: 10 * 60 * 1000,

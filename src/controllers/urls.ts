@@ -29,7 +29,7 @@ const createShortUrl = async (req: IReq, res: IRes): Promise<void | IRes> => {
 		throw new BaseError("Please don't submit already shortened urls", 400);
 
 	const savedUrl = await UrlModel.findOne({ fullUrl: url });
-	if (savedUrl) return res.status(200).json(savedUrl);
+	if (savedUrl) throw new BaseError('Url already shortned', 409);
 
 	const urlId = shortId.generate();
 	const shortUrl = baseUrl + '/' + urlId;
