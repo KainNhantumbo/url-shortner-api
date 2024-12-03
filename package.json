@@ -39,7 +39,7 @@
 		"express-rate-limit": "^6.6.0",
 		"helmet": "^6.0.0",
 		"moment": "^2.29.4",
-		"mongoose": "^6.13.2",
+		"mongoose": "^8.8.3",
 		"shortid": "^2.2.16",
 		"toad-scheduler": "^1.6.1",
 		"valid-url": "^1.0.9"
